@@ -487,6 +487,27 @@ theme_map = {
 }
 primary_color = theme_map.get(theme_choice, "#0f4c81")
 
+st.markdown("## 📘 Guide de l'application")   
+st.markdown(""" 
+     
+    Ce guide explique :
+    - Le fonctionnement général de l'application
+    - Les étapes des modélisations (RFM, K-means, Apriori)
+    - L’interprétation marketing des résultats
+    """)
+
+pdf_path = "Guide_Data_Mining.pdf"
+
+with open(pdf_path, "rb") as f:
+        pdf_bytes = f.read()
+
+st.download_button(
+        label="📥 Télécharger le guide (PDF)",
+        data=pdf_bytes,
+        file_name="Guide_Data_Mining.pdf",
+        mime="application/pdf"
+    )
+
 # Configuration Seaborn
 sns.set_theme(style="whitegrid", palette="deep")
 plt.rcParams['text.color'] = primary_color
